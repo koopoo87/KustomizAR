@@ -193,7 +193,7 @@ public class BodySourceView : MonoBehaviour
 				lr.SetVertexCount(2);
 				lr.material = BoneMaterial;
 				lr.SetWidth(0.02f, 0.02f);
-				jointObj.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+				jointObj.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
 				jointObj.name = jt.ToString();
 				jointObj.transform.parent = body.transform;
 				
@@ -207,6 +207,7 @@ public class BodySourceView : MonoBehaviour
 				/*Camera Transform */
 				main_camera.transform.parent = jointObj.transform ;
 				main_camera.transform.localScale = new Vector3 (1, 1, 1);
+
 
 				//rotation 180 degree to y axis
 				/*Vector3 angle = main_camera.transform.rotation.eulerAngles;
@@ -241,6 +242,8 @@ public class BodySourceView : MonoBehaviour
 	/** Body : Draw Line **/
     private void RefreshBodyObject(Kinect.Body body, GameObject bodyObject)
     {
+
+
         for (Kinect.JointType jt = Kinect.JointType.SpineBase; jt <= Kinect.JointType.ThumbRight; jt++)
         {
             Kinect.Joint sourceJoint = body.Joints[jt];
@@ -256,11 +259,13 @@ public class BodySourceView : MonoBehaviour
 			jointObj.localPosition = GetVector3FromJoint(sourceJoint);
             
             LineRenderer lr = jointObj.GetComponent<LineRenderer>();
+
             if(targetJoint.HasValue)
             {
                 lr.SetPosition(0, jointObj.localPosition);
 				lr.SetPosition(1, GetVector3FromJoint(targetJoint.Value));
                 lr.SetColors(GetColorForState (sourceJoint.TrackingState), GetColorForState(targetJoint.Value.TrackingState));
+				//addColliderToLine(lr, jointObj.localPosition, GetVector3FromJoint(targetJoint.Value));
             }
             else
             {
@@ -268,6 +273,8 @@ public class BodySourceView : MonoBehaviour
             }
         }
     }
+	
+
 
 	/* New Code (7/28 ) : Getting Hand Coordinate */
 	private Vector3 getHandCoordinates(Kinect.Body body){
@@ -276,18 +283,30 @@ public class BodySourceView : MonoBehaviour
 		Vector3 HandCoordinates = new Vector3 (0,0,0);
 		// Change Cursor Type 
 
-		if (Input.GetMouseButton(0)) { // 0
+		if (Input.GetMouseButton (0)) { // 0
 			//When Right Clicked 
 			Debug.Log ("Right : Mouse Down Called");
 			HandCoordinates = GetVector3FromJoint (body.Joints [Kinect.JointType.HandTipRight]);
-			Debug.Log( "Pressed right Click At: " + HandCoordinates );
+			Debug.Log ("Pressed right Click At: " + HandCoordinates);
 			CreateMesh (HandCoordinates);
-		} 
-
-		else if ( Input.GetMouseButton(1) ) { // 1
+		} else if (Input.GetMouseButton (1)) { // 1
 			//When Left Clicked
 			HandCoordinates = GetVector3FromJoint (body.Joints [Kinect.JointType.HandTipLeft]);
 			CreateMesh (HandCoordinates);
+
+		} else if (Input.GetMouseButton (2)) {
+
+			if(curMesh != null)
+			{
+				//Transform root_transform =
+				GameObject root = curMesh.transform.root.gameObject;
+				Rigidbody rootRigidBody = root.AddComponent<Rigidbody>();
+				rootRigidBody.mass = 5;
+
+				//curMesh = null;
+				Destroy (curMesh);
+			}
+
 		}
 		return HandCoordinates;
 	}
@@ -304,7 +323,7 @@ public class BodySourceView : MonoBehaviour
 
 		/* Make Children */ 
 		if (prevMesh != null) {
-			curMesh.transform.parent = prevMesh.transform;
+			curMesh.transform.parent = prevMesh.transform.root;
 		}
 
 		prevMesh = curMesh;
