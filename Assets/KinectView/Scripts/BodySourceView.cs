@@ -144,6 +144,8 @@ public class BodySourceView : MonoBehaviour
 				if(IsFirstBody)// Start Detecting only one body 
 				{
 					Debug.Log("It Is First Body, ID: " + body.TrackingId);
+					//put rotation 
+
 					CurrentBody = body;
 					IDToFirstBody = body.TrackingId;
 					IsFirstBody =false;
@@ -151,7 +153,9 @@ public class BodySourceView : MonoBehaviour
 					if(!_Bodies.ContainsKey(body.TrackingId))
 					{
 						_Bodies[body.TrackingId] = CreateBodyObject (body.TrackingId);
-						//_Bodies[body.TrackingId].transform.localScale = new Vector3(-1,1,1);
+						//change coordinates
+						//_Bodies[body.TrackingId] = changePerspective(_Bodies[body.TrackingId]);
+						//_Bodies[body.TrackingId].transform.localScale = new Vector3(-1,1,-1);
 						//StartGrabbing(CurrentBody);
 					}
 
@@ -163,7 +167,8 @@ public class BodySourceView : MonoBehaviour
 			}
         }
     }
-	
+
+
     /** Body : Draw Joints **/
     private GameObject CreateBodyObject(ulong id)
     {
@@ -202,10 +207,11 @@ public class BodySourceView : MonoBehaviour
 				/*Camera Transform */
 				main_camera.transform.parent = jointObj.transform ;
 				main_camera.transform.localScale = new Vector3 (1, 1, 1);
+
 				//rotation 180 degree to y axis
-				Vector3 angle = main_camera.transform.rotation.eulerAngles;
+				/*Vector3 angle = main_camera.transform.rotation.eulerAngles;
 				angle = new Vector3(angle.x, angle.y+180, angle.z);
-				main_camera.transform.rotation = Quaternion.Euler(angle);
+				main_camera.transform.rotation = Quaternion.Euler(angle);*/
 
 				lr.SetVertexCount(2);
 				lr.material = BoneMaterial;
@@ -221,7 +227,7 @@ public class BodySourceView : MonoBehaviour
 				//mesh collider also created 
 				LineRenderer lr = jointObj.AddComponent<LineRenderer>();
 				lr.SetVertexCount(2);
-				lr.material = BoneMaterial;
+				lr.material = BoneMaterial;   
 				lr.SetWidth(0.02f, 0.02f);
 				jointObj.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
 				jointObj.name = jt.ToString();
@@ -247,16 +253,13 @@ public class BodySourceView : MonoBehaviour
             
             Transform jointObj = bodyObject.transform.Find(jt.ToString()); // transform.FindChild
 			//jointObj.localScale
-			//jointObj.position =  Vector3.Reflect(jointObj.position, Vector3.left);
-			//jointObj.localScale = new Vector3(-1 * jointObj.localScale.x, jointObj.localScale.y, jointObj.localScale.z);
 			jointObj.localPosition = GetVector3FromJoint(sourceJoint);
-			//jointObj.localPosition = new Vector3(-1*GetVector3FromJoint(sourceJoint).x, GetVector3FromJoint(sourceJoint).y, GetVector3FromJoint(sourceJoint).z);
             
             LineRenderer lr = jointObj.GetComponent<LineRenderer>();
             if(targetJoint.HasValue)
             {
                 lr.SetPosition(0, jointObj.localPosition);
-                lr.SetPosition(1, GetVector3FromJoint(targetJoint.Value));
+				lr.SetPosition(1, GetVector3FromJoint(targetJoint.Value));
                 lr.SetColors(GetColorForState (sourceJoint.TrackingState), GetColorForState(targetJoint.Value.TrackingState));
             }
             else
@@ -405,7 +408,7 @@ public class BodySourceView : MonoBehaviour
     
     private static Vector3 GetVector3FromJoint(Kinect.Joint joint)
     {
-        return new Vector3(joint.Position.X, joint.Position.Y, joint.Position.Z);
+        return new Vector3(joint.Position.X, joint.Position.Y, -joint.Position.Z);
     }
 
 
