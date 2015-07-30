@@ -1,0 +1,133 @@
+Initialize engine version: 5.1.1f1 (2046fc06d4d8)
+[VRDevice] Successfully created device oculus.
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 980 (ID=0x13c0)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\KustomizAR\Desktop\KinectExample02\example_draw_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\KustomizAR\Desktop\KinectExample02\example_draw_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\KustomizAR\Desktop\KinectExample02\example_draw_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\KustomizAR\Desktop\KinectExample02\example_draw_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\KustomizAR\Desktop\KinectExample02\example_draw_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\KustomizAR\Desktop\KinectExample02\example_draw_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\KustomizAR\Desktop\KinectExample02\example_draw_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\KustomizAR\Desktop\KinectExample02\example_draw_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\KustomizAR\Desktop\KinectExample02\example_draw_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\KustomizAR\Desktop\KinectExample02\example_draw_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\KustomizAR\Desktop\KinectExample02\example_draw_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\KustomizAR\Desktop\KinectExample02\example_draw_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.039 seconds
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+desktop: 2560x1440 59Hz; virtual: 2560x1440 at 0,0
+<RI> Initialized touch support.
+Platform assembly: C:\Users\KustomizAR\Desktop\KinectExample02\example_draw_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\KustomizAR\Desktop\KinectExample02\example_draw_Data\Managed\System.dll (this message is harmless)
+[CAPI] LibOVR module is located at C:\Windows\SYSTEM32\LibOVRRT32_0_6.dll
+
+ 
+(Filename:  Line: 46)
+
+OVR Error:
+  OVRTime: 103604.233608
+  Time: 2015-07-30 20:04:33 [585:969:100]
+  Code: -1003 -- ovrError_Timeout
+  Description: Semaphore WaitForMultipleObjects
+
+ 
+(Filename:  Line: 46)
+
+OVR Error:
+  OVRTime: 103605.244602
+  Time: 2015-07-30 20:04:34 [596:951:300]
+  Code: -1003 -- ovrError_Timeout
+  Description: Semaphore WaitForMultipleObjects
+
+ 
+(Filename:  Line: 46)
+
+OVR Error:
+  OVRTime: 103606.261582
+  Time: 2015-07-30 20:04:35 [613:926:900]
+  Code: -1003 -- ovrError_Timeout
+  Description: Semaphore WaitForMultipleObjects
+
+ 
+(Filename:  Line: 46)
+
+OVR Error:
+  OVRTime: 103607.278554
+  Time: 2015-07-30 20:04:36 [630:904:0]
+  Code: -1003 -- ovrError_Timeout
+  Description: Semaphore WaitForMultipleObjects
+
+ 
+(Filename:  Line: 46)
+
+OVR Error:
+  OVRTime: 103608.294531
+  Time: 2015-07-30 20:04:37 [646:879:500]
+  Code: -1003 -- ovrError_Timeout
+  Description: Semaphore WaitForMultipleObjects
+
+ 
+(Filename:  Line: 46)
+
+OVR Error:
+  OVRTime: 103609.310504
+  Time: 2015-07-30 20:04:38 [662:853:100]
+  Code: -1003 -- ovrError_Timeout
+  Description: Semaphore WaitForMultipleObjects
+
+ 
+(Filename:  Line: 46)
+
+OVR Error:
+  OVRTime: 103610.326478
+  Time: 2015-07-30 20:04:39 [678:826:600]
+  Code: -1003 -- ovrError_Timeout
+  Description: Semaphore WaitForMultipleObjects
+
+ 
+(Filename:  Line: 46)
+
+OVR Error:
+  OVRTime: 103611.342452
+  Time: 2015-07-30 20:04:40 [694:801:600]
+  Code: -1003 -- ovrError_Timeout
+  Description: Semaphore WaitForMultipleObjects
+
+ 
+(Filename:  Line: 46)
+
+OVR Error:
+  OVRTime: 103612.360447
+  Time: 2015-07-30 20:04:41 [712:793:0]
+  Code: -1003 -- ovrError_Timeout
+  Description: Semaphore WaitForMultipleObjects
+
+ 
+(Filename:  Line: 46)
+
+OVR Error:
+  OVRTime: 103613.376404
+  Time: 2015-07-30 20:04:42 [728:752:600]
+  Code: -1003 -- ovrError_Timeout
+  Description: Semaphore WaitForMultipleObjects
+
+ 
+(Filename:  Line: 46)
+
+OVR Error:
+  OVRTime: 103614.393393
+  Time: 2015-07-30 20:04:43 [745:729:100]
+  Code: -1003 -- ovrError_Timeout
+  Description: Semaphore WaitForMultipleObjects
+
+ 
+(Filename:  Line: 46)
+
