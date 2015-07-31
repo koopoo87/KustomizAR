@@ -209,10 +209,6 @@ public class BodySourceView : MonoBehaviour
 				main_camera.transform.localScale = new Vector3 (1, 1, 1);
 
 
-				//rotation 180 degree to y axis
-				/*Vector3 angle = main_camera.transform.rotation.eulerAngles;
-				angle = new Vector3(angle.x, angle.y+180, angle.z);
-				main_camera.transform.rotation = Quaternion.Euler(angle);*/
 
 				lr.SetVertexCount(2);
 				lr.material = BoneMaterial;
@@ -289,12 +285,12 @@ public class BodySourceView : MonoBehaviour
 			HandCoordinates = GetVector3FromJoint (body.Joints [Kinect.JointType.HandTipRight]);
 			Debug.Log ("Pressed right Click At: " + HandCoordinates);
 			CreateMesh (HandCoordinates);
-		} else if (Input.GetMouseButton (1)) { // 1
+		}if (Input.GetMouseButton (1)) { // 1
 			//When Left Clicked
 			HandCoordinates = GetVector3FromJoint (body.Joints [Kinect.JointType.HandTipLeft]);
 			CreateMesh (HandCoordinates);
 
-		} else if (Input.GetMouseButton (2)) {
+		}if (Input.GetMouseButton (2)) {
 
 			if(curMesh != null)
 			{

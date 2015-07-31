@@ -32,7 +32,7 @@ public class floorPlane : MonoBehaviour {
 
 				_vec4 = frame.FloorClipPlane; 
 				//Debug.Log(_vec4.W);
-				_plane.transform.position = new Vector3 (-4, _vec4.W * (-1), 3);  
+				_plane.transform.position = new Vector3 (-4, _vec4.W * (-1), 1);  
 				//_plane.transform.Translate(new Vector3(0.1f,0.1f,0.1f));
 			}
 		}				
